@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Posts on abeli.no </title>
+    <link>http://abelino.github.io/blog/post/</link>
+    <language>en-us</language>
+    <author>Alexander Ivanov</author>
+    <updated>2015-11-20 16:33:24 -0800 PST</updated>
+    
+    <item>
+      <title>hello world</title>
+      <link>http://abelino.github.io/blog/post/helloworld/</link>
+      <pubDate>Fri, 20 Nov 2015 16:33:24 PST</pubDate>
+      <author>Alexander Ivanov</author>
+      <guid>http://abelino.github.io/blog/post/helloworld/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo, justo non tincidunt volutpat, libero ante condimentum augue, at porta velit augue ac lacus. Vestibulum non eros at ligula tempor accumsan. Proin eu tincidunt lectus. Vestibulum a luctus mauris. Etiam pretium arcu quis dui egestas, vitae volutpat erat porttitor. Aliquam vulputate orci eget blandit elementum. Phasellus enim mi, laoreet sed tempus vel, iaculis vitae diam. Aenean sit amet mi rutrum magna ornare congue at at tortor.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
