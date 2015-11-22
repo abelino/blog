@@ -17,6 +17,7 @@ task "create-orphans" do
 end
 
 def setup_orphan(name)
+  status, ret, err = syscall("git rm -rf .")
   raise err unless status.success?
   `touch README.md`
   `echo "# #{name}" > README.md`
