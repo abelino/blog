@@ -22,7 +22,7 @@ def setup_orphan(name)
   `touch README.md`
   `echo "# #{name}" > README.md`
   
-  status, ret, err = syscall("git add -A")
+  status, ret, err = syscall("git add README.md")
   raise err unless status.success?
 
   msg = "Initial commit on #{name} branch"
