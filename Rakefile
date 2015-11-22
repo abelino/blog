@@ -18,7 +18,9 @@ end
 
 def setup_orphan(name)
   status, ret, err = syscall("git rm -rf .")
+  puts "21"
   raise err unless status.success?
+  puts "22"
   `touch README.md`
   `echo "# #{name}" > README.md`
   
