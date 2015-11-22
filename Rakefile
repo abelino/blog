@@ -47,7 +47,7 @@ def syscall(cmd)
     if block_given?
       yield nil, nil, error
     else
-      nil, nil, error
+      return nil, nil, error
     end
   end
 end
