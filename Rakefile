@@ -1,6 +1,15 @@
 require "open3"
 
-task "create-orphans" do
+task "foo" do
+  if has_uncommitted_changes?
+    puts "has unccommitted changes"
+  else
+    puts "notthing to commit"
+  end
+end
+
+
+task "setup-orphans" do
   syscall("git checkout --quiet --orphan gh-pages") do |status, ret, err|
     exists_regex = /already exists/ 
     unless  err =~ exists_regex
@@ -14,6 +23,11 @@ task "create-orphans" do
       setup_orphan("content")
     end
   end
+end
+
+def has_uncommitted_changes?
+  status, ret, err = syscall("git diff --exit-code --quiet")
+  !status.success?
 end
 
 def setup_orphan(name)
