@@ -3,24 +3,21 @@ require "open3"
 task "create-orphans" do
   syscall("git checkout --quiet --orphan gh-pages") do |status, ret, err|
     exists_regex = /already exists/ 
-    unless (ret && ret.empty?) ||  err =~ exists_regex
+    unless  err =~ exists_regex
       setup_orphan("gh-pages")
     end
   end
 
   syscall("git checkout --quiet --orphan content") do |status, ret, err|
-    exists_regex = /already exists/ 
-    unless (ret && ret.empty?) ||  err =~ exists_regex
+    exists_regex = /already exists/
+    unless  err =~ exists_regex
       setup_orphan("content")
     end
   end
 end
 
 def setup_orphan(name)
-  status, ret, err = syscall("git rm -rf .")
-  puts "21"
   raise err unless status.success?
-  puts "22"
   `touch README.md`
   `echo "# #{name}" > README.md`
   
