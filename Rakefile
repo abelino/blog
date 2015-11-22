@@ -6,12 +6,13 @@ task "foo" do
   else
     puts "notthing to commit"
   end
-end
 
+  puts get_content_branches()
+end
 
 task "setup-orphans" do
   syscall("git checkout --quiet --orphan gh-pages") do |status, ret, err|
-    exists_regex = /already exists/ 
+    exists_regex = /already exists/
     unless  err =~ exists_regex
       setup_orphan("gh-pages")
     end
@@ -25,6 +26,15 @@ task "setup-orphans" do
   end
 end
 
+def get_content_branches()
+  status, ret, err = syscall("git branch")
+  raise err unless status.success?
+
+  ret.split("\n")
+    .map { |line| line.strip.sub(/^\*\s+/, "") }
+    .select { |item| item =~ /content:/ }
+end
+
 def has_uncommitted_changes?
   status, ret, err = syscall("git diff --exit-code --quiet")
   !status.success?
@@ -35,7 +45,7 @@ def setup_orphan(name)
   raise err unless status.success?
   `touch README.md`
   `echo "# #{name}" > README.md`
-  
+
   status, ret, err = syscall("git add README.md")
   raise err unless status.success?
 
@@ -50,7 +60,7 @@ end
 def syscall(cmd)
   begin
     stdout, stderr, status = Open3.capture3(cmd)
-    ret = stdout.slice!(0..-(1 + $/.size)).strip if status.success? 
+    ret = stdout.slice!(0..-(1 + $/.size)).strip if status.success?
 
     if block_given?
       yield status, ret, stderr
