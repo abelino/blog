@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title> on abeli.no </title>
+    <link>http://abelino.github.io/blog/</link>
+    <language>en-us</language>
+    <author>Alexander Ivanov</author>
+    <updated>2015-11-22 17:35:40 -0800 PST</updated>
+    
+    <item>
+      <title>Nitro: A quick and simple profiler for Go</title>
+      <link>http://abelino.github.io/blog/post/nitro/</link>
+      <pubDate>Sun, 22 Nov 2015 17:35:40 PST</pubDate>
+      <author>Alexander Ivanov</author>
+      <guid>http://abelino.github.io/blog/post/nitro/</guid>
+      <description>
+
+&lt;h1 id=&#34;nitro:6fa5b148d1e359cd483300e0156a9ea5&#34;&gt;Nitro&lt;/h1&gt;
+
+&lt;p&gt;Quick and easy performance analyzer library for &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;overview:6fa5b148d1e359cd483300e0156a9ea5&#34;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;Nitro is a quick and easy performance analyzer library for Go.
+It is useful for comparing A/B against different drafts of functions
+or different functions.&lt;/p&gt;
+
+&lt;h2 id=&#34;implementing-nitro:6fa5b148d1e359cd483300e0156a9ea5&#34;&gt;Implementing Nitro&lt;/h2&gt;
+
+&lt;p&gt;Using Nitro is simple. First, use &lt;code&gt;go get&lt;/code&gt; to install the latest version
+of the library.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ go get github.com/spf13/nitro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, include nitro in your application.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>hello world</title>
+      <link>http://abelino.github.io/blog/post/helloworld/</link>
+      <pubDate>Fri, 20 Nov 2015 16:33:24 PST</pubDate>
+      <author>Alexander Ivanov</author>
+      <guid>http://abelino.github.io/blog/post/helloworld/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo, justo non tincidunt volutpat, libero ante condimentum augue, at porta velit augue ac lacus. Vestibulum non eros at ligula tempor accumsan. Proin eu tincidunt lectus. Vestibulum a luctus mauris. Etiam pretium arcu quis dui egestas, vitae volutpat erat porttitor. Aliquam vulputate orci eget blandit elementum. Phasellus enim mi, laoreet sed tempus vel, iaculis vitae diam. Aenean sit amet mi rutrum magna ornare congue at at tortor.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
