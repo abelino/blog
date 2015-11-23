@@ -32,7 +32,7 @@ def get_content_branches()
 
   ret.split("\n")
     .map { |line| line.strip.sub(/^\*\s+/, "") }
-    .select { |item| item =~ /content:/ }
+    .select { |item| item =~ /content:/ && item !=~ /\[WIP\]/ }
 end
 
 def has_uncommitted_changes?
