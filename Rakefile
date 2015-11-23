@@ -177,6 +177,10 @@ def setup_orphan(name)
   `touch README.md`
   `echo "# #{name}" > README.md`
 
+  if name == "content"
+    `mkdir static && touch static/.gitkeep`
+  end
+
   status, ret, err = syscall("git add README.md")
   raise err unless status.success?
 
