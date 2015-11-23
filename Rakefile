@@ -7,7 +7,12 @@ task "foo" do
     puts "notthing to commit"
   end
 
-  puts get_content_branches()
+  puts "posts ready to deploy #{get_content_branches()}"
+  get_content_branches().each do |branch_name|
+    if branch_name =~ /^post\/wip\//
+      puts "matched wip #{branch_name}"
+    end
+  end
 end
 
 task "deploy" do
@@ -44,7 +49,7 @@ def get_content_branches()
 
   ret.split("\n")
     .map { |line| line.strip.sub(/^\*\s+/, "") }
-    .select { |item| item =~ /^post\// && item !=~ /^post\/wip\// }
+    .select { |item| item =~ /^post\/(?!wip\/)/ }
 end
 
 def has_uncommitted_changes?
