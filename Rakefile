@@ -16,13 +16,22 @@ task "foo" do
 end
 
 task "deploy" do
+  if has_uncommitted_changes?
+    raise "You have uncommitted changes in your active directory."
+  end
+
   content = get_content_branches()
-  return if content.empty?
+  if content.empty?
+    puts "Nothing to deploy."
+    return
+  end
 
   status, ret, err = syscall("git checkout content")
   raise err if status.success?
 
   content.each do | branch_name |
+    cmd = "git checkout #{branch_name} content/* content/"
+    status, ret, err = syscall(cmd)
 
   end
 end
