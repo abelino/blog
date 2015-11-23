@@ -29,10 +29,23 @@ task "deploy" do
   status, ret, err = syscall("git checkout content")
   raise err if status.success?
 
-  content.each do | branch_name |
-    cmd = "git checkout #{branch_name} content/* content/"
-    status, ret, err = syscall(cmd)
+  status, content_hash, err = syscall("git log -n 1 --format=\"%H\" HEAD")
+  raise err if status.success?
 
+  content.each do | branch_name |
+    begin
+      cmd = "git checkout #{branch_name} content/* content/"
+      status, ret, err = syscall(cmd)
+      raise err if status.success?
+
+      cmd = "git checkout #{branch_name} static/* static/"
+      status, ret, err = syscall(cmd)
+      raise err if status.success?
+    rescue StandardError => error
+      status, ret, err = syscall("git reset --hard #{content_hash}")
+      raise err if status.success?
+      raise error
+    end
   end
 end
 
