@@ -10,6 +10,18 @@ task "foo" do
   puts get_content_branches()
 end
 
+task "deploy" do
+  content = get_content_branches()
+  return if content.empty?
+
+  status, ret, err = syscall("git checkout content")
+  raise err if status.success?
+
+  content.each do | branch_name |
+
+  end
+end
+
 task "setup-orphans" do
   syscall("git checkout --quiet --orphan gh-pages") do |status, ret, err|
     exists_regex = /already exists/
