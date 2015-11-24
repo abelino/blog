@@ -110,6 +110,9 @@ task "deploy" do
     status, ret, err = syscall("git add -f public/*")
     raise err unless status.success?
 
+    status, ret, err = syscall("git rm -rf content/*")
+    raise err unless status.success?
+
     commit_msg = "Updating site #{Time.now.utc.iso8601}"
     status, ret, err = syscall("git commit -m \"#{commit_msg}\"")
 
@@ -119,7 +122,10 @@ task "deploy" do
     status, ret, err = syscall("git checkout public -- public/*")
     raise err unless status.success?
 
-    `mv public/* . && rm -rf public && git add -A`
+    status, ret, err = syscall("git reset HEAD -- .")
+    raise err unless status.success?
+
+    `rsync -a public/ . && rm -rf public && rm -rf .gitkeep && git add .`
     status, ret, err = syscall("git commit -m \"#{commit_msg}\"")
     raise err unless status.success?
 
