@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://abelino.github.io/blog/</loc>
-    <lastmod>2015-11-23T16:23:55-08:00</lastmod>
+    <lastmod>2015-11-23T16:50:14-08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://abelino.github.io/blog/post/anothertest/</loc>
+    <lastmod>2015-11-23T16:50:14-08:00</lastmod>
   </url>
   
   <url>

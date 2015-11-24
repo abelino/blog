@@ -5,7 +5,17 @@
     <link>http://abelino.github.io/blog/</link>
     <language>en-us</language>
     <author>Alexander Ivanov</author>
-    <updated>2015-11-23 16:23:55 -0800 PST</updated>
+    <updated>2015-11-23 16:50:14 -0800 PST</updated>
+    
+    <item>
+      <title>Another Test</title>
+      <link>http://abelino.github.io/blog/post/anothertest/</link>
+      <pubDate>Mon, 23 Nov 2015 16:50:14 PST</pubDate>
+      <author>Alexander Ivanov</author>
+      <guid>http://abelino.github.io/blog/post/anothertest/</guid>
+      <description>&lt;p&gt;Here is another test.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Test</title>
